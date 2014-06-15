@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="BLEExplorer.Characteristics"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BLEExplorer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="lblDeviceName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontFamily="{StaticResource PhoneFontFamilySemiLight}" FontSize="{StaticResource TextStyleExtraLargeFontSize}" Margin="24,6" Foreground="{ThemeResource PhoneAccentBrush}"/>
+        <TextBlock x:Name="lblServiceName" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontFamily="{StaticResource PhoneFontFamilySemiLight}" FontSize="{StaticResource TextStyleExtraLargeFontSize}" Margin="24,6"  Foreground="{ThemeResource PhoneAccentBrush}"/>
+        <TextBlock x:Name="lblServiceAddress" Grid.Row="2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontFamily="{StaticResource PhoneFontFamilySemiLight}" FontSize="{StaticResource TextStyleMediumFontSize}" Margin="24,6"  Foreground="{ThemeResource PhoneAccentBrush}"/>
+        <ListBox  Grid.Row="3" Foreground="{ThemeResource PhoneForegroundBrush}" Background="Transparent" x:Name="lstCharacteristics" ItemTemplate="{StaticResource DataTemplateCharacteristics}"/>
+    </Grid>
+</Page>

@@ -1,0 +1,57 @@
+﻿<Application
+    x:Class="BLEExplorer.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BLEExplorer"
+  >
+    <Application.Resources>
+        <local:ServiceUuidToName x:Key="serviceUuidToName"  />
+        <local:CharacteristicName x:Key="characteriticToName"  />
+        <local:CharacteristicProperties x:Key="characteristicProperties"  />
+        <local:ByteToText x:Key="byteToText"  />
+        <local:ByteToString x:Key="byteToString"  />
+
+        <DataTemplate x:Key="DataTemplateDevices">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource TextStyleExtraLargeFontSize}" Margin="12,0" Text="{Binding Name}"/>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{StaticResource PhoneFontFamilyNormal}" Margin="12,0" Text="{Binding Id}" FontSize="13.333"/>
+            </Grid>
+
+
+        </DataTemplate>
+        <DataTemplate x:Key="DataTemplateServices">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource TextStyleLargeFontSize}" Margin="12,0" Text="{Binding Uuid,Converter={StaticResource serviceUuidToName}}" />
+                <TextBlock HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource TextStyleLargeFontSize}" Margin="12,0" Text="{Binding Uuid}"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DataTemplateCharacteristics">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource TextStyleLargeFontSize}" Margin="12,0" DataContext="{Binding GattCharacteristic}" Text="{Binding Converter={StaticResource characteriticToName}}" />
+                <TextBlock HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource TextStyleMediumFontSize}" Margin="12,0" DataContext="{Binding GattCharacteristic}" Text="{Binding Uuid}"/>
+                <TextBlock HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource TextStyleMediumFontSize}" Margin="12,0" DataContext="{Binding GattCharacteristic}" Text="{Binding Converter={StaticResource characteristicProperties}}" />
+                <TextBlock HorizontalAlignment="Left" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource TextStyleMediumFontSize}" Margin="12,0" Text="{Binding Value,Converter={StaticResource byteToString}}" />
+                <TextBlock HorizontalAlignment="Left" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource TextStyleMediumFontSize}" Margin="12,0" Text="{Binding Value,Converter={StaticResource byteToText}}" />
+            </Grid>
+        </DataTemplate>
+
+
+
+    </Application.Resources>
+</Application>

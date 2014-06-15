@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
+  <Identity Name="XpressCode.BLEExplorer" Publisher="CN=C9DFE49E-4DB8-4F2D-8464-953802C6BE70" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="a02f09c7-67a8-481c-ba6a-3b6613280a1b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>BLEExplorer</DisplayName>
+    <PublisherDisplayName>XpressCode di Ardelean Dan Ciprian</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.1</OSMinVersion>
+    <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="BLEExplorer.App">
+      <m3:VisualElements DisplayName="BLEExplorer" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="BLEExplorer" ForegroundText="light" BackgroundColor="transparent">
+        <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png">
+        </m3:DefaultTile>
+        <m3:SplashScreen Image="Assets\SplashScreen.png" />
+      </m3:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClientServer" />
+    <m2:DeviceCapability Name="bluetooth.genericAttributeProfile">
+      <m2:Device Id="any">
+        <m2:Function Type="name:genericAccess" />
+        <m2:Function Type="name:alertNotification" />
+        <m2:Function Type="name:battery" />
+        <m2:Function Type="name:bloodPressure" />
+        <m2:Function Type="name:currentTime" />
+        <m2:Function Type="name:cyclingPower" />
+        <m2:Function Type="name:cyclingSpeedAndCadence" />
+        <m2:Function Type="name:deviceInformation" />
+        <m2:Function Type="name:genericAttribute" />
+        <m2:Function Type="name:glucose" />
+        <m2:Function Type="name:healthThermometer" />
+        <m2:Function Type="name:heartRate" />
+        <m2:Function Type="name:humanInterfaceDevice" />
+        <m2:Function Type="name:immediateAlert" />
+        <m2:Function Type="name:linkLoss" />
+        <m2:Function Type="name:locationAndNavigation" />
+        <m2:Function Type="name:nextDstChange" />
+        <m2:Function Type="name:phoneAlertStatus" />
+        <m2:Function Type="name:referenceTimeUpdate" />
+        <m2:Function Type="name:runningSpeedAndCadence" />
+        <m2:Function Type="name:scanParameters" />
+        <m2:Function Type="name:txPower" />
+      </m2:Device>
+    </m2:DeviceCapability>
+  </Capabilities>
+</Package>

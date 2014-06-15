@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="BLEExplorer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NokiaTreasureTag"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+
+    </Page.Resources>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Refresh" Label="refresh" Click="AppBarButtonRefresh_Click"/>
+                <AppBarButton Label="bluetooth" Click="AppBarButtonBluetooth_Click" >
+                    <AppBarButton.Icon>
+                        <PathIcon Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Data="m 27.633882,16.877083 c 0.168756,-0.150721 0.170371,-0.398066 0.0032,-0.550405 l -4.049853,-3.684635 c -0.167141,-0.152338 -0.442748,-0.400228 -0.611772,-0.55041 l -0.3507,-0.313021 C 22.455758,11.62816 22.317416,11.5022 22.317416,11.499241 c 0,-0.0033 -0.138612,-0.128925 -0.307636,-0.278838 l -1.030313,-0.914031 c -0.169026,-0.149913 -0.307906,-0.08774 -0.307906,0.138616 v 8.516379 c 0,0.226082 -0.138073,0.288529 -0.307367,0.137803 l -4.906299,-4.369614 c -0.169025,-0.150727 -0.430368,-0.135382 -0.580821,0.03366 l -0.547716,0.614733 c -0.150724,0.169295 -0.135382,0.430368 0.03365,0.581089 l 5.605815,4.991843 c 0.169025,0.150755 0.169025,0.396494 0,0.547193 l -5.605815,4.992167 c -0.169024,0.1507 -0.184635,0.411509 -0.03365,0.580799 l 0.547716,0.614733 c 0.150723,0.169069 0.411796,0.184359 0.580821,0.03355 l 4.906838,-4.369624 c 0.169024,-0.1507 0.307366,-0.08827 0.307366,0.138104 v 8.516115 c 0,0.226324 0.138612,0.288475 0.307906,0.138875 l 1.030298,-0.914042 c 0.169026,-0.149929 0.307637,-0.27533 0.307637,-0.278575 0,-0.0055 0.138342,-0.128918 0.307366,-0.279398 l 0.3507,-0.313004 C 23.1453,30.207623 23.420639,29.959684 23.58778,29.80739 l 4.049332,-3.685207 c 0.167141,-0.152076 0.165526,-0.399684 -0.0032,-0.550384 l -4.574963,-4.073836 c -0.169294,-0.150699 -0.169294,-0.396438 0,-0.547193 L 27.6339,16.87699 z M 22.317401,14.12101 c 0,-0.226088 0.138342,-0.28799 0.307367,-0.137802 l 2.583822,2.302023 c 0.168755,0.150452 0.168755,0.396724 0,0.547176 l -2.583822,2.300944 c -0.169025,0.150727 -0.307367,0.08855 -0.307367,-0.137802 V 14.12101 z m 0.307367,14.344769 c -0.169025,0.150479 -0.307367,0.08827 -0.307367,-0.13783 v -4.874522 c 0,-0.226324 0.138342,-0.28853 0.307367,-0.138049 l 2.583822,2.300915 c 0.168755,0.15103 0.168755,0.397264 0,0.547194 l -2.583822,2.302292 z"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="about" Icon="Help" Click="AppBarButtonAbout_Click"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Paired Devices" VerticalAlignment="Top" FontFamily="{StaticResource PhoneFontFamilySemiLight}" FontSize="{StaticResource TextStyleExtraLargeFontSize}" Margin="24,6" Foreground="{ThemeResource PhoneAccentBrush}"/>
+        <ListBox  Grid.Row="1"  SelectionChanged="deviceList_SelectionChanged" Foreground="{ThemeResource PhoneForegroundBrush}" Background="Transparent" x:Name="lstDevices" ItemTemplate="{StaticResource DataTemplateDevices}"/>
+    </Grid>
+</Page>
